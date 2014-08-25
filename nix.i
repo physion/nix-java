@@ -3,23 +3,13 @@
 #include <nix.hpp>
 %}
 
+#define NIXAPI
 
 %include <nix/base/ImplContainer.hpp>
-%include <nix.hpp>
-
-
-namespace nix {
-    namespace base {
-        %template(ImplContainerIFile) base::ImplContainer<base::IFile>;
-    }
-    
-    class File : public nix::base::ImplContainerIFile {
-        static File open(const std::string &name, FileMode mode=FileMode::ReadWrite,
-                         Implementation impl=Implementation::Hdf5);
-    };
-}
-
-/*%include <nix/base/ImplContainer.hpp>
 %include <nix/base/IFile.hpp>
 
-*/
+namespace nix {
+    %template(ImplContainerIFile) nix::base::ImplContainer<nix::base::IFile>;
+}
+
+%include <nix/File.hpp>
