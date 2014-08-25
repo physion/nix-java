@@ -19,3 +19,7 @@
 *.exe
 *.out
 *.app
+
+
+java/
+nix_wrap.cxx
