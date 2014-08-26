@@ -13,13 +13,14 @@
 %}
 
 /* Defines are used to introduce constants, in Java they will become
-   static final variables. (Not sure what an empty define will do in
-   SWIG -Joris)
+   static final variables.
+
+   NIXAPI is used as a compiler specific define for Windows. SWIG will
+   complain without this empty define.
  */
 #define NIXAPI
 
-/* (Not sure why these headers are using the %include directive
-   instead of copying #include commands above -Joris)
+/* These includes are needed to generate the wrapper.
  */
 %include <nix/base/ImplContainer.hpp>
 %include <nix/base/IFile.hpp>
@@ -35,9 +36,6 @@ namespace nix {
     %template(ImplContainerIFile) nix::base::ImplContainer<nix::base::IFile>;
 }
 
-/* (Not sure why this header is seperate from the headers above and
-   not in the #include commands above. Important for ordering of code
-   in C code? Although normally I would expect header files to go on
-   top. -Joris)
+/* This will create the actual binding for File.
  */
 %include <nix/File.hpp>
