@@ -70,7 +70,7 @@ namespace nix {
     %template(EntityWithSourcesIDataArray) nix::base::EntityWithSources<nix::base::IDataArray>;
 }
 
-/* This will create the actual binding for File.
+/* This will create the actual binding for nix API classes.
  */
 %include <nix/Block.hpp>
 %include <nix/DataArray.hpp>
